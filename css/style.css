@@ -458,7 +458,7 @@ button { font-family: inherit; border: none; cursor: pointer; }
   gap: 0;
 }
 
-.section-header {
+.about-section .section-header {
   text-align: center;
 }
 
