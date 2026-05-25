@@ -144,17 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Show toast
-            toast.classList.add('show');
-            contactForm.reset();
 
-            // Hide toast after 4s
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-            
-            // Note: In an actual deployment, you would make an AJAX fetch to Formspree here.
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const mailtoLink = `mailto:ky0307005@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+
+            window.location.href = mailtoLink;
+            contactForm.reset();
         });
     }
 
