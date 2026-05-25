@@ -453,8 +453,17 @@ button { font-family: inherit; border: none; cursor: pointer; }
    ========================================= */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: minmax(0, 800px);
+  justify-content: center;
+  gap: 0;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.about-text-content {
+  text-align: center;
 }
 
 .about-text-content p {
@@ -465,6 +474,7 @@ button { font-family: inherit; border: none; cursor: pointer; }
 
 .about-quick-links {
   display: flex;
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
@@ -479,39 +489,6 @@ button { font-family: inherit; border: none; cursor: pointer; }
 
 .about-quick-links a:hover {
   color: var(--accent);
-}
-
-.about-stats-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.stat-card {
-  background-color: var(--bg-card);
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  transition: transform var(--transition-normal);
-}
-
-.stat-card:hover {
-  transform: translateX(10px);
-  border-color: var(--accent);
-}
-
-.stat-number {
-  font-size: 3.5rem;
-  color: var(--accent);
-  font-family: var(--font-heading);
-}
-
-.stat-label {
-  font-size: 1.1rem;
-  font-weight: 500;
 }
 
 /* =========================================
@@ -692,7 +669,7 @@ button { font-family: inherit; border: none; cursor: pointer; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3rem;
 }
 
@@ -704,13 +681,20 @@ button { font-family: inherit; border: none; cursor: pointer; }
   transition: transform var(--transition-normal);
 }
 
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .project-card:hover {
   transform: translateY(-8px);
   border-color: var(--accent);
 }
 
 .project-img-wrapper {
-  height: 220px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   overflow: hidden;
 }
 
