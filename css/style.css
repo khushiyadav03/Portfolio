@@ -705,6 +705,11 @@ button { font-family: inherit; border: none; cursor: pointer; }
   transition: transform var(--transition-slow);
 }
 
+.project-img-contain {
+  object-fit: contain;
+  background-color: var(--bg);
+}
+
 .project-card:hover .project-img {
   transform: scale(1.05);
 }
